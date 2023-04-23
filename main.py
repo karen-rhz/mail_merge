@@ -8,13 +8,12 @@ body_letter = letter.readlines()
 headline_letter = body_letter[0]
 
 # Replace the [name] placeholder with the actual name.
-name = open("./Input/Names/invited_names.txt")
 names = []
 with open("./Input/Names/invited_names.txt") as list_of_names:
     for line in list_of_names:
         # .readline gets only 1 line from the .txt
         # .strip removes spaces from strings
-        get_name = name.readline().strip()
+        get_name = list_of_names.readline().strip()
         names.append(get_name)
 
 final_headers = []
