@@ -21,3 +21,15 @@ final_headers = []
 for person in names:
     write_name = headline_letter.replace("[name]", person)
     final_headers.append(write_name)
+
+# Save the letters in the folder "ReadyToSend"
+for n in range(len(names)):
+    # body_letter is a list of strings.
+    # Since there's not .replace() in a list, I have to do it in 2 lines with .pop and .insert
+    body_letter.pop(0)
+    body_letter.insert(0, final_headers[n])
+    # Creating the new file for each name
+    # It will work no matter how many names you add to the invited_names.txt
+    with open(f"./Output/ReadyToSend/Letter_for_{names[n]}.txt", "w") as final_letter:
+        for line in body_letter:
+            final_letter.write(f"{line}")
